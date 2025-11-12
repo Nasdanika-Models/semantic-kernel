@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="semantickernel" nsURI="ecore://nasdanika.org/models/semantic-kernel"
+    nsPrefix="org.nasdanika.models.semantic-kernel">
+  <eClassifiers xsi:type="ecore:EClass" name="Kernel" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
+        eType="#//HookEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
+        eType="#//Plugin" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aiServiceSelector" eType="#//AIServiceSelector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//AIService"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AIService" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="service" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AIServiceSelector" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plugin" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="#//Function" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Invocable" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//InputVariable" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//NamedElement/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="promptExecutionSettings"
+        upperBound="-1" eType="#//PromptExecutionSettingsEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptTemplateConfig" eSuperTypes="#//Invocable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="template" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="templateRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="templateFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="semantic-kernel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//Invocable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//OutputVariable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpelFunction" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptedFunction" eSuperTypes="#//Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="engineNames" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="engineMimeTypes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="engineExtensions" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptFunction" eSuperTypes="#//Function #//PromptTemplateConfig"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputVariable" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//DocumentedNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputVariable" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptExecutionSettings" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="service" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="presensePenalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequencyPenalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTokens" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bestOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultsPerPrompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopSequences" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responseFormat" eType="#//ResponseFormat"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokenSelectionBiases" upperBound="-1"
+        eType="#//TokenSelectionBiasesEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenSelectionBiasesEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptExecutionSettingsEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//PromptExecutionSettings"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hook" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="50"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HookEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Hook"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionInvokedHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionInvokingHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PostChatCompletionHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreChatCompletionHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreToolCallHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptRenderedHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PromptRenderingHook" eSuperTypes="#//Hook"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AudioToTextService" eSuperTypes="#//AIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAiAudioToTextService" eSuperTypes="#//AudioToTextService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EmbeddingGenerationService" eSuperTypes="#//AIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextEmbeddingGenerationService" eSuperTypes="#//EmbeddingGenerationService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAITextEmbeddingGenerationService"
+      eSuperTypes="#//TextEmbeddingGenerationService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextAIService" eSuperTypes="#//AIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChatCompletionService" eSuperTypes="#//TextAIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeminiChatCompletion" eSuperTypes="#//ChatCompletionService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAIChatCompletion" eSuperTypes="#//ChatCompletionService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextGenerationService" eSuperTypes="#//TextAIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeminiTextGenerationService" eSuperTypes="#//TextGenerationService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HuggingFaceTextGenerationService" eSuperTypes="#//TextGenerationService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAITextGenerationService" eSuperTypes="#//TextGenerationService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextToAudioService" eSuperTypes="#//AIService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAiTextToAudioService" eSuperTypes="#//TextToAudioService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InvocationContext" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
+        eType="#//HookEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="promptExecutionSettings"
+        eType="#//PromptExecutionSettings" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="telemetry" eType="#//SemanticKernelTelemetry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invocationReturnModel"
+        eType="#//InvocationReturnMode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticKernelTelemetry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tracer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InvocationReturnMode">
+    <eLiterals name="FULL_HISTORY"/>
+    <eLiterals name="NEW_MESSAGES_ONLY" value="1"/>
+    <eLiterals name="LAST_MESSAGE_ONLY" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseFormat" eSuperTypes="../../org.nasdanika.ncore/model/ncore.ecore#//ModelElement ../../org.nasdanika.ncore/model/ncore.ecore#//Documented"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JsonObjectResponseFormat" eSuperTypes="#//ResponseFormat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JsonSchemaResponseFormat" eSuperTypes="#//ResponseFormat">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jsonSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jsonSchemaRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextResponseFormat" eSuperTypes="#//ResponseFormat"/>
+</ecore:EPackage>

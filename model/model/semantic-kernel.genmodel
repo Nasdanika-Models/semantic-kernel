@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.models.semantickernel/src/main/java"
+    creationIcons="false" editorDirectory="" modelPluginID="org.nasdanika.models.semantickernel"
+    modelName="SemanticKernel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" bundleManifest="false" featureDelegation="Dynamic"
+    complianceLevel="17.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>semantic-kernel.ecore</foreignModel>
+  <genPackages prefix="Semantickernel" basePackage="org.nasdanika.models" disposableProviderFactory="true"
+      ecorePackage="semantic-kernel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="semantic-kernel.ecore#//InvocationReturnMode">
+      <genEnumLiterals ecoreEnumLiteral="semantic-kernel.ecore#//InvocationReturnMode/FULL_HISTORY"/>
+      <genEnumLiterals ecoreEnumLiteral="semantic-kernel.ecore#//InvocationReturnMode/NEW_MESSAGES_ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="semantic-kernel.ecore#//InvocationReturnMode/LAST_MESSAGE_ONLY"/>
+    </genEnums>
+    <genClasses ecoreClass="semantic-kernel.ecore#//Kernel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Kernel/hooks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Kernel/plugins"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Kernel/aiServiceSelector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Kernel/services"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//AIService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//AIService/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//AIService/service"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//AIServiceSelector"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//Plugin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Plugin/functions"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//Invocable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Invocable/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Invocable/promptExecutionSettings"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptTemplateConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptTemplateConfig/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptTemplateConfig/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptTemplateConfig/templateRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptTemplateConfig/templateFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//Function/type"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//SpelFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//SpelFunction/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//ScriptedFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//ScriptedFunction/engineNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//ScriptedFunction/engineMimeTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//ScriptedFunction/engineExtensions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//ScriptedFunction/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//ScriptedFunction/scriptRef"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptFunction"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//InputVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//InputVariable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//InputVariable/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//InputVariable/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//InputVariable/enumValues"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OutputVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//OutputVariable/type"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptExecutionSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/temperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/topP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/presensePenalty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/frequencyPenalty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/maxTokens"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/bestOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/resultsPerPrompt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettings/stopSequences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//PromptExecutionSettings/responseFormat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//PromptExecutionSettings/tokenSelectionBiases"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TokenSelectionBiasesEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//TokenSelectionBiasesEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//TokenSelectionBiasesEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptExecutionSettingsEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//PromptExecutionSettingsEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//PromptExecutionSettingsEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//Hook">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//Hook/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//HookEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//HookEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//HookEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//FunctionInvokedHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//FunctionInvokingHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PostChatCompletionHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PreChatCompletionHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PreToolCallHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptRenderedHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//PromptRenderingHook"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//AudioToTextService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OpenAiAudioToTextService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//EmbeddingGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TextEmbeddingGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OpenAITextEmbeddingGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TextAIService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//ChatCompletionService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//GeminiChatCompletion"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OpenAIChatCompletion"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TextGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//GeminiTextGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//HuggingFaceTextGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OpenAITextGenerationService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TextToAudioService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//OpenAiTextToAudioService"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//InvocationContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//InvocationContext/hooks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//InvocationContext/promptExecutionSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//InvocationContext/telemetry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//InvocationContext/invocationReturnModel"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//SemanticKernelTelemetry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//SemanticKernelTelemetry/tracer"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//ResponseFormat"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//JsonObjectResponseFormat"/>
+    <genClasses ecoreClass="semantic-kernel.ecore#//JsonSchemaResponseFormat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//JsonSchemaResponseFormat/jsonSchema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic-kernel.ecore#//JsonSchemaResponseFormat/jsonSchemaRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic-kernel.ecore#//JsonSchemaResponseFormat/type"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic-kernel.ecore#//TextResponseFormat"/>
+  </genPackages>
+</genmodel:GenModel>
