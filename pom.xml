@@ -22,9 +22,10 @@
 	</scm>
 
 	<properties>
+		<semantic-kernel.version>1.4.3</semantic-kernel.version>
 		<core.version>2025.10.0</core.version>
 		<html.version>2025.10.0</html.version>
-		<models.ecore.version>2025.11.0</models.ecore.version>
+		<models.ecore.version>2025.10.0</models.ecore.version>
 		<jacoco.version>0.8.12</jacoco.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
@@ -169,6 +170,7 @@
 		<module>model</module>
 		<module>ecore</module>
 		<module>doc</module>
+		<module>runtime</module>
 	</modules>
 
 	 <profiles>

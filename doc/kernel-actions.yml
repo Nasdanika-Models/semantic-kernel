@@ -1,0 +1,12 @@
+Action:
+    icon: https://docs.nasdanika.org/images/nasdanika-logo.png
+    text: Nasdanika Semantic Kernel Model
+    location: https://semantic-kernel.models.nasdanika.org/
+    children:
+     - ActionReference: "target/action-models/kernel-actions.xmi#/"
+    navigation:
+      - Action:
+          text: Source
+          icon: fab fa-github
+          location: https://github.com/Nasdanika-Models/semantic-kernel
+          
