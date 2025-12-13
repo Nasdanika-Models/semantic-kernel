@@ -3,17 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.nasdanika.models.semantic-kernel</groupId>
-		<version>2025.12.0</version>
+		<version>2025.11.0</version>
 		<artifactId>parent</artifactId>
 		<relativePath>..</relativePath>
 	</parent>
-	<artifactId>doc</artifactId>
+	<artifactId>runtime</artifactId>
 	<packaging>jar</packaging>
-	<name>Model documentation generation processors</name>
+	<name>Nasdanika Semantic Kernel Runtime</name>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>ecore</artifactId>
+			<artifactId>model</artifactId>
 			<version>${project.version}</version>
 		</dependency>		
 		<dependency>
@@ -21,6 +21,11 @@
 			<artifactId>graph</artifactId>
 			<version>${models.ecore.version}</version>
 		</dependency>		
+        <dependency>
+            <groupId>com.microsoft.semantic-kernel</groupId>
+            <artifactId>semantickernel-api</artifactId>
+            <version>${semantic-kernel.version}</version>
+        </dependency>		
 	</dependencies>
 </project>
 

@@ -94,7 +94,7 @@ public class TestSemanticKernelModelDocGen {
 		String rootActionResource = "actions.yml";
 		URI rootActionURI = URI.createFileURI(new File(rootActionResource).getAbsolutePath());//.appendFragment("/");
 		URI pageTeplateURI = URI.createFileURI(new File("page-template.yml").getAbsolutePath());//.appendFragment("/");
-		String siteMapDomain = "https://crew-ai.models.nasdanika.org";		
+		String siteMapDomain = "https://semantic-kernel.models.nasdanika.org";		
 		AppSiteGenerator actionSiteGenerator = new AppSiteGenerator() {
 			
 			protected boolean isDeleteOutputPath(String path) {

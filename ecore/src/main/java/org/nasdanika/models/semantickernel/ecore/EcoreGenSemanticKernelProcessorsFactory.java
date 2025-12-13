@@ -57,7 +57,7 @@ public class EcoreGenSemanticKernelProcessorsFactory {
 			description = "A model of Semantic Kernel concepts"
 	)
 	public EPackageNodeProcessor createEPackageProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider,
 			BiConsumer<Label, ProgressMonitor> labelConfigurator,
 			ProgressMonitor progressMonitor) {		
@@ -113,7 +113,7 @@ public class EcoreGenSemanticKernelProcessorsFactory {
 	
 	@EClassifierNodeProcessorFactory
 	public EClassifierNodeProcessor<?> createEClassifierProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider,
 			BiConsumer<Label, ProgressMonitor> labelConfigurator,
 			ProgressMonitor progressMonitor) {

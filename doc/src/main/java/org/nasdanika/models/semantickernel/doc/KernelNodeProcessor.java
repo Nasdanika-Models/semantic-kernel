@@ -14,7 +14,7 @@ import org.nasdanika.models.semantickernel.Kernel;
 public class KernelNodeProcessor extends ModelElementNodeProcessor<Kernel> {
 
 	public KernelNodeProcessor(
-		NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		Context context,
 		java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider,
 		Collection<DocumentationFactory> documentationFactories) {

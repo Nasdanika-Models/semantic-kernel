@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.models.semantic-kernel</groupId>
 	<artifactId>parent</artifactId>
-	<version>2025.12.0</version>
+	<version>2025.11.0</version>
 	<packaging>pom</packaging>
 	<name>Semantic Kernel model, processors, doc generator</name>
 	<description>Semantic Kernel model for semantic mapping and execution</description>
@@ -36,9 +36,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.1</version>
+				<version>3.14.0</version>
 				<configuration>
 					<release>21</release>
+					<target>21</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -49,7 +50,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.4.0</version>
+				<version>3.3.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -154,13 +155,13 @@
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-api</artifactId>
-		    <version>6.0.1</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>6.0.1</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 	</dependencies>
