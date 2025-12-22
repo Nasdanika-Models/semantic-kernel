@@ -81,11 +81,11 @@ public class EcoreGenSemanticKernelProcessorsFactory {
 				try {
 					Document document = Document.create(false, null);
 					Page page = document.createPage();
-					page.setName("A2A");
+					page.setName("Semantic Kernel");
 					
 					Model model = page.getModel();
 					Root root = model.getRoot();
-					Layer backgroundLayer = root.getLayers().get(0);
+					Layer<?> backgroundLayer = root.getLayers().get(0);
 //					Map<EPackage, Layer> layers = new HashMap<>();
 					
 					generateDrawioDiagram(
