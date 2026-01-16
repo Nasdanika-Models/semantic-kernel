@@ -154,7 +154,7 @@ public class EcoreGenSemanticKernelProcessorsFactory {
 				@Override
 				protected void createDrawioConnection(
 						URI base, 
-						Layer layer, 
+						Layer<?> layer, 
 						EClassifierNodeProcessor<?> dependency,
 						Node diagramNode, 
 						Node targetNode) {
