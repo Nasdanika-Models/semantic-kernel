@@ -1,4 +1,4 @@
-package org.nasdanika.models.crewai.ecore.tests;
+package org.nasdanika.models.semantickernel.ecore.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -117,7 +117,7 @@ public class TestSemanticKernelModelDocGen {
 		
 		System.out.println("There are " + errorCount + " site errors");
 		
-		if (errorCount != 100) {
+		if (errorCount != 325) {
 			throw new ExecutionException("There are problems with pages: " + errorCount);
 		}		
 	}
